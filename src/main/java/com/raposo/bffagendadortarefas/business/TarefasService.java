@@ -36,7 +36,7 @@ public class TarefasService {
     }
 
     public TarefasDTOResponse alteraStatus(StatusNotificacaoEnum status, String id, String token) {
-        return client.alterarStatusTarefa(id, status, token);
+        return client.alterarStatusTarefa(status, id, token);
     }
 
     public TarefasDTOResponse alteraTarefa(String id, TarefasDTORequest dto, String token) {

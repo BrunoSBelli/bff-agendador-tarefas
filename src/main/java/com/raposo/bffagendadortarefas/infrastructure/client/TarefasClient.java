@@ -30,7 +30,7 @@ public interface TarefasClient {
     void deletaTarefaPorId(@RequestParam("id") String id, @RequestHeader("Authorization") String token);
 
     @PatchMapping
-    TarefasDTOResponse alterarStatusTarefa(@RequestParam("id") String id, @RequestParam("status") StatusNotificacaoEnum status, @RequestHeader("Authorization") String token);
+    TarefasDTOResponse alterarStatusTarefa(@RequestParam("status") StatusNotificacaoEnum status, @RequestParam("id") String id, @RequestHeader("Authorization") String token);
 
     @PutMapping
     TarefasDTOResponse alterarTarefa(@RequestBody TarefasDTORequest dto, @RequestParam("id") String id, @RequestHeader("Authorization") String token);
