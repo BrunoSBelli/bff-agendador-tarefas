@@ -44,6 +44,7 @@ public class TarefasControlller {
     @Operation(summary = "Buscar lista de tarefas por Período", description = "Busca lista de tarefas cadastradas por um período")
     @ApiResponse(responseCode = "200", description = "Tarefas encontradas")
     @ApiResponse(responseCode = "500", description = "Erro de servidor")
+    @ApiResponse(responseCode = "401", description = "Usuário não autenticado")
     public ResponseEntity<List<TarefasDTOResponse>> buscaListaDeTarefasPorPeriodo(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataInicial,
                                                                                   @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataFinal,
                                                                                   @RequestHeader(name = "Authorization", required = false) String token) {
@@ -55,6 +56,8 @@ public class TarefasControlller {
     @Operation(summary = "Buscar lista de tarefas por email de Usuário", description = "Busca lista de tarefas cadastradas por email de Usuário")
     @ApiResponse(responseCode = "200", description = "Tarefas encontradas")
     @ApiResponse(responseCode = "500", description = "Erro de servidor")
+    @ApiResponse(responseCode = "403", description = "Email não encontrada")
+    @ApiResponse(responseCode = "401", description = "Usuário não autenticado")
     public ResponseEntity<List<TarefasDTOResponse>> buscaListaDeTarefasPorEmail(@RequestHeader(name = "Authorization", required = false) String token) {
         return ResponseEntity.ok(tarefasService.buscaTarefasAgendadasPorEmail(token));
     }
@@ -63,6 +66,8 @@ public class TarefasControlller {
     @Operation(summary = "Deletar tarefa por ID", description = "Deleta tarefas por email de ID")
     @ApiResponse(responseCode = "200", description = "Tarefa deletada")
     @ApiResponse(responseCode = "500", description = "Erro de servidor")
+    @ApiResponse(responseCode = "403", description = "Tarefa id não encontrada")
+    @ApiResponse(responseCode = "401", description = "Usuário não autenticado")
     public ResponseEntity<Void> deletaTarefaPorId(@RequestParam("id") String id, @RequestHeader(name = "Authorization", required = false) String token) {
 
         tarefasService.deletaTarefaPorId(id, token);
@@ -74,6 +79,8 @@ public class TarefasControlller {
     @Operation(summary = "Alterar status de tarefa por ID", description = "Altera status das tarefas por email de ID")
     @ApiResponse(responseCode = "200", description = "Status de tarefa alterada")
     @ApiResponse(responseCode = "500", description = "Erro de servidor")
+    @ApiResponse(responseCode = "403", description = "Tarefa id não encontrada")
+    @ApiResponse(responseCode = "401", description = "Usuário não autenticado")
     public ResponseEntity<TarefasDTOResponse> alterarStatusTarefa(@RequestParam("id")String id, @RequestParam("status") StatusNotificacaoEnum status, @RequestHeader(name = "Authorization", required = false) String token){
 
         return ResponseEntity.ok(tarefasService.alteraStatus(status, id, token));
@@ -84,6 +91,8 @@ public class TarefasControlller {
     @Operation(summary = "Alterar tarefa por ID", description = "Altera dados das tarefas por email de ID")
     @ApiResponse(responseCode = "200", description = "Tarefa alterada")
     @ApiResponse(responseCode = "500", description = "Erro de servidor")
+    @ApiResponse(responseCode = "403", description = "Tarefa id não encontrada")
+    @ApiResponse(responseCode = "401", description = "Usuário não autenticado")
     public ResponseEntity<TarefasDTOResponse> alterarTarefa(@RequestBody TarefasDTORequest dto, @RequestParam("id") String id, @RequestHeader(name = "Authorization", required = false) String token){
         return ResponseEntity.ok(tarefasService.alteraTarefa(id, dto, token));
     }
