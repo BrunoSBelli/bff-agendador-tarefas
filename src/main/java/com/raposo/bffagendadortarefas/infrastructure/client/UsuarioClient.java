@@ -8,7 +8,9 @@ import com.raposo.bffagendadortarefas.business.DTO.in.EnderecoDTORequest;
 import com.raposo.bffagendadortarefas.business.DTO.in.LoginDTORequest;
 import com.raposo.bffagendadortarefas.business.DTO.in.TelefoneDTORequest;
 import com.raposo.bffagendadortarefas.business.DTO.in.UsuarioDTORequest;
+import com.raposo.bffagendadortarefas.business.DTO.out.ViaCepDTOResponse;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @FeignClient(name = "usuario", url = "${usuario.url}")
@@ -42,6 +44,9 @@ public interface UsuarioClient {
 
     @PostMapping("/telefone")
     TelefoneDTOResponse cadastraTelefone(@RequestBody TelefoneDTORequest dto, @RequestHeader("Authorization") String token);
+
+    @GetMapping("/endereco/{cep}")
+    ViaCepDTOResponse buscaDadosCep(@PathVariable("cep") String cep);
 
 
 }
