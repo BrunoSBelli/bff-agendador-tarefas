@@ -1,8 +1,6 @@
 package com.raposo.bffagendadortarefas.business;
 
-import com.raposo.bffagendadortarefas.business.DTO.out.EnderecoDTOResponse;
-import com.raposo.bffagendadortarefas.business.DTO.out.TelefoneDTOResponse;
-import com.raposo.bffagendadortarefas.business.DTO.out.UsuarioDTOResponse;
+import com.raposo.bffagendadortarefas.business.DTO.out.*;
 import com.raposo.bffagendadortarefas.business.DTO.in.EnderecoDTORequest;
 import com.raposo.bffagendadortarefas.business.DTO.in.LoginDTORequest;
 import com.raposo.bffagendadortarefas.business.DTO.in.TelefoneDTORequest;
@@ -62,5 +60,8 @@ public class UsuarioService {
 
     }
 
+    public ViaCepDTOResponse buscaDadosCep(String cep){
+        return client.buscaDadosCep(cep);
+    }
 
 }
