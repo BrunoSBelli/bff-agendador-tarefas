@@ -1,9 +1,7 @@
 package com.raposo.bffagendadortarefas.controller;
 
+import com.raposo.bffagendadortarefas.infrastructure.exceptions.*;
 import com.raposo.bffagendadortarefas.infrastructure.exceptions.IllegalArgumentException;
-import com.raposo.bffagendadortarefas.infrastructure.exceptions.ConflictException;
-import com.raposo.bffagendadortarefas.infrastructure.exceptions.ResourceNotFoundException;
-import com.raposo.bffagendadortarefas.infrastructure.exceptions.UnauthorizedException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -30,5 +28,10 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<String> handleIllegalArgumentException(IllegalArgumentException exception){
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(BusinesseException.class)
+    public ResponseEntity<String> handleBusinesseException(BusinesseException exception) {
+        return new ResponseEntity<>(exception.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
