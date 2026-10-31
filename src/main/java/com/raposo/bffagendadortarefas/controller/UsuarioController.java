@@ -1,16 +1,18 @@
 package com.raposo.bffagendadortarefas.controller;
 
-import com.raposo.bffagendadortarefas.business.DTO.out.EnderecoDTOResponse;
-import com.raposo.bffagendadortarefas.business.DTO.out.TelefoneDTOResponse;
-import com.raposo.bffagendadortarefas.business.DTO.out.UsuarioDTOResponse;
 import com.raposo.bffagendadortarefas.business.DTO.in.EnderecoDTORequest;
 import com.raposo.bffagendadortarefas.business.DTO.in.LoginDTORequest;
 import com.raposo.bffagendadortarefas.business.DTO.in.TelefoneDTORequest;
 import com.raposo.bffagendadortarefas.business.DTO.in.UsuarioDTORequest;
+import com.raposo.bffagendadortarefas.business.DTO.out.EnderecoDTOResponse;
+import com.raposo.bffagendadortarefas.business.DTO.out.TelefoneDTOResponse;
+import com.raposo.bffagendadortarefas.business.DTO.out.UsuarioDTOResponse;
 import com.raposo.bffagendadortarefas.business.DTO.out.ViaCepDTOResponse;
 import com.raposo.bffagendadortarefas.business.UsuarioService;
+import com.raposo.bffagendadortarefas.infrastructure.security.SecurityConfig;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/usuario")
 @RequiredArgsConstructor
 @Tag(name = "Usuário", description = "Cadastro e login de usuários")
+@SecurityRequirement(name = SecurityConfig.SECURITY_SCHEME)
 
 public class UsuarioController {
 
