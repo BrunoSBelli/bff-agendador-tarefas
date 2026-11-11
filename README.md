@@ -2,7 +2,7 @@
 
 **Backend for Frontend (BFF)** do sistema Agendador de Tarefas. É o ponto de entrada único do sistema: recebe as requisições do cliente e as encaminha, via **OpenFeign**, para os microsserviços de **usuário**, **tarefas** e **notificação**.
 
-> 🎓 **Sobre o projeto:** desenvolvido durante o curso **[NOME DO CURSO / INSTRUTOR]**, o mesmo em que aprendi Spring Boot. **[ESCREVA O QUE VOCÊ ADAPTOU OU ACRESCENTOU POR CONTA PRÓPRIA. Exemplos: a orquestração de todos os serviços com Docker Compose, os READMEs, ajustes de configuração.]**
+> 🎓 **Sobre o projeto:** desenvolvido durante o curso **JAVANAUTA**, o mesmo em que aprendi Spring Boot. Sistema desenvolvido em conjunto com a plataforma e a orquestração de todos os serviços com Docker Compose, os READMEs, ajustes de configuração foram feitos por minha conta visto que tive que adaptar para funcionar em versões mais novas.
 
 ---
 
