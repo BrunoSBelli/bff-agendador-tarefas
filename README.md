@@ -145,4 +145,4 @@ Java · Spring Boot · Spring Cloud OpenFeign · Maven · Docker · Docker Compo
 
 ## 👤 Autor
 
-**Bruno Souza Belli**: [GitHub](https://github.com/BrunoSBelli) · [LinkedIn](https://linkedin.com/in/bruno-souza-belli-508337235)
+**Bruno Souza Belli**: [GitHub](https://github.com/BrunoSBelli) · [LinkedIn](https://www.linkedin.com/in/bruno-souza-belli/)
